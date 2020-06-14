@@ -1,7 +1,7 @@
-export { AuthService, LoginOpt } from './auth.service';
+export { SocialAuthService, SocialAuthServiceConfig } from './socialauth.service';
 export { SocialLoginModule } from './sociallogin.module';
-export { SocialUser } from './entities/user';
+export { SocialUser } from './entities/social-user';
+export { BaseLoginProvider } from './entities/base-login-provider';
 export { GoogleLoginProvider } from './providers/google-login-provider';
 export { FacebookLoginProvider } from './providers/facebook-login-provider';
-export { AuthServiceConfig } from './auth.service';
-export { BaseLoginProvider } from './entities/base-login-provider';
+export { AmazonLoginProvider } from './providers/amazon-login-provider';
