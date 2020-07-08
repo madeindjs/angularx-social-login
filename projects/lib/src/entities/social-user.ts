@@ -9,6 +9,7 @@ export class SocialUser {
   authToken: string;
 
   idToken: string; // Reference https://developers.google.com/identity/sign-in/web/backend-auth
+  refreshToken: string;
   authorizationCode: string; // Reference https://developers.google.com/identity/sign-in/web/reference#googleauthgrantofflineaccessoptions
 
   /**

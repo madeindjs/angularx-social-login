@@ -44,11 +44,14 @@ export class GoogleLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       if (this.auth2.isSignedIn.get()) {
         let user: SocialUser = new SocialUser();
-        let profile = this.auth2.currentUser.get().getBasicProfile();
-        let token = this.auth2.currentUser.get().getAuthResponse(true)
-          .access_token;
-        let backendToken = this.auth2.currentUser.get().getAuthResponse(true)
-          .id_token;
+
+        let authUser = this.auth2.currentUser.get();
+        let authResponse = authUser.getAuthResponse(true);
+
+        let profile = authUser.getBasicProfile();
+        let token = authResponse.access_token;
+        let backendToken = authResponse.id_token;
+        let refreshToken = authResponse.refresh_token;
 
         user.id = profile.getId();
         user.name = profile.getName();
@@ -58,6 +61,7 @@ export class GoogleLoginProvider extends BaseLoginProvider {
         user.lastName = profile.getFamilyName();
         user.authToken = token;
         user.idToken = backendToken;
+        user.refreshToken = refreshToken;
         resolve(user);
       } else {
         reject('No user is currently logged in.');
