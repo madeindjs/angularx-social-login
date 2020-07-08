@@ -7,12 +7,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DemoComponent } from './demo/demo.component';
 
-import { SocialLoginModule, SocialAuthServiceConfig } from 'lib';
+import { SocialLoginModule, SocialAuthServiceConfig } from '../../projects/lib/src/public-api';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider,
   AmazonLoginProvider,
-} from 'lib';
+} from '../../projects/lib/src/public-api';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, DemoComponent],
@@ -26,7 +26,12 @@ import {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com'
+              '624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com',
+              {
+                // use this to get refresh token
+                access_type: 'offline',
+                prompt: 'consent',
+              }
             ),
           },
           {

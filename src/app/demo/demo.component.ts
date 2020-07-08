@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SocialAuthService } from 'lib';
-import { SocialUser } from 'lib';
+import { SocialAuthService } from '../../../projects/lib/src/public-api';
+import { SocialUser } from '../../../projects/lib/src/public-api';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider,
   AmazonLoginProvider,
-} from 'lib';
+} from '../../../projects/lib/src/public-api';
 
 @Component({
   selector: 'app-demo',
